@@ -7,10 +7,45 @@ function humanPlay() {
     let move = prompt("Enter your move (Rock, Paper, or Scissors): ");
     return move.toLowerCase();
 }
-// function playRound(playerSelection, computerSelection){}
+function playRound(playerSelection, computerSelection){
+    if (playerSelection == "rock") {
+        if (computerSelection == "paper") {
+            return "You lose! Paper beats rock";
+        }
+        else if (computerSelection == "scissors") {
+            return "You win! Rock beats scissors";
+        }
+        else {
+            return "Draw!";
+        }
+    }
+    else if (playerSelection == "paper") {
+        if (computerSelection == "scissors") {
+            return "You lose! Scissors beats paper";
+        }
+        else if (computerSelection == "rock") {
+            return "You win! Paper beats rock";
+        }
+        else {
+            return "Draw!";
+        }
+    }
+    else {
+        if (computerSelection == "rock") {
+            return "You lose! Rock beats scissors";
+        }
+        else if (computerSelection == "paper") {
+            return "You win! Scissors beats paper";
+        }
+        else {
+            return "Draw!";
+        }
+    }
+}
 
 let computerSelection = computerPlay();
 let humanSelection = humanPlay();
-console.log(computerSelection);
-console.log(humanSelection);
+console.log("Computer chose: " + computerSelection);
+console.log("Human chose: " + humanSelection);
+console.log(playRound(humanSelection, computerSelection));
 
