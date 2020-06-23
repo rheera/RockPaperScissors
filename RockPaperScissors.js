@@ -44,7 +44,8 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game() {
-    let tally = 0;
+    let humanTally = 0;
+    let compTally = 0;
     for (let i = 0; i < 5; i++){
         let computerSelection = computerPlay();
         let humanSelection = humanPlay();
@@ -53,11 +54,18 @@ function game() {
         let round = playRound(humanSelection, computerSelection);
         console.log(round);
         if (/win/.test(round)) {
-            tally++;
+            humanTally++;
+        }
+        else if (/lose/.test(round)){
+            compTally++;
         }
     }
-    console.log(tally);
-    if (tally >= 3){
+    console.log("Human score: " + humanTally);
+    console.log("Computer Score: " + compTally);
+    if (humanTally == compTally){
+        return "Tie game";
+    }
+    else if (humanTally > compTally){
         return "You won";
     }
     else {
