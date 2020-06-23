@@ -43,9 +43,31 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
+function game() {
+    let tally = 0;
+    for (let i = 0; i < 5; i++){
+        let computerSelection = computerPlay();
+        let humanSelection = humanPlay();
+        console.log("Computer chose: " + computerSelection);
+        console.log("Human chose: " + humanSelection);
+        let round = playRound(humanSelection, computerSelection);
+        console.log(round);
+        if (/win/.test(round)) {
+            tally++;
+        }
+    }
+    console.log(tally);
+    if (tally >= 3){
+        return "You won";
+    }
+    else {
+        return "You lost";
+    }
+}
+
 let computerSelection = computerPlay();
 let humanSelection = humanPlay();
 console.log("Computer chose: " + computerSelection);
 console.log("Human chose: " + humanSelection);
 console.log(playRound(humanSelection, computerSelection));
-
+console.log(game());
